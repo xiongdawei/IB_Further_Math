@@ -6,3 +6,11 @@
 ### Compression
 
 ### Graph Theory
+
+### Minimum Spanning Tree
+
+#### Kruskal Algorithm
+
+#### Prim's Algorithm
+
+
