@@ -25,6 +25,13 @@ A minimum spanning tree (MST) is a subset of the edges if a connected, edge-weig
 
 ##### b.Prim's Algorithm
 
+##### c.Dijstra Algorithm
+
+Someone said Dijstra creates this algorithm using just 20 minutes. However, I learned how to code using greedy far more than 20 minutes. 
+[result_of_programming](codings/Dijkstra_v1.py)
+![Dijstra_Graph](pictures/Dijkstra_illustration.png)
+
+
 #### 2.Chinese Postman Theorem
 
 
