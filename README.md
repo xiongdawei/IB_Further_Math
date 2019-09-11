@@ -1,6 +1,6 @@
 # CAS Project 
 ## Presented David Xiong and Helen Bai. 
-## This IBDP CAS Prjecet with its IP are assets of Air Sealand Inc.
+## This IBDP CAS Prjecet, its IP, and the contents are assets of Air Sealand Inc.
 ## ALL RIGHTS RESERVES ©
 
 ### Encryption
