@@ -41,7 +41,7 @@ Pagerank is really important when you want to search something in the searching 
 
 ### Perceptron
 
-Do you know what a neural network is? Well, basically, it's artificial intelligence. It's cool. So what is it made of? Perceptron! That's it, something used to solve binary variables questions. It has a variety of usages, from showing logic gates, to predict the breed of iris. [see_the_programming]()
-![result_pictures]()
+Do you know what a neural network is? Well, basically, it's artificial intelligence. It's cool. So what is it made of? Perceptron! That's it, something used to solve binary variables questions. It has a variety of usages, from showing logic gates, to predict the breed of iris. [see_the_programming](codings/perception.py)
+![result_pictures](pictures/Perceptron_illustration.png)
 
 
