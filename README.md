@@ -7,10 +7,12 @@
 ### Graph Theory
 
 In mathematics, graph theory is the study of graphs, which are mathematical structures used to model pairwise relations between objects. A graph in this context is made up of vertices which are connected by edges. A graph can be directed or undirected, weighted or unweighted. 
-#### Minimum Spanning Tree
+#### 1.Minimum Spanning Tree
 
-##### Kruskal Algorithm
+##### a.Kruskal Algorithm
 
-##### Prim's Algorithm
+##### b.Prim's Algorithm
+
+#### 2.Chinese Postman Theorem
 
 
