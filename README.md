@@ -10,7 +10,7 @@ In mathematics, graph theory is the study of graphs, which are mathematical stru
 
 #### 1.Minimum Spanning Tree
 
-[Planar Graph](600px-Minimum_spanning_tree.png)
+![Planar Graph](600px-Minimum_spanning_tree.png)
 
 ##### a.Kruskal Algorithm
 
