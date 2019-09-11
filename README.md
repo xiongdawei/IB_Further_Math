@@ -39,5 +39,9 @@ Someone said Dijstra creates this algorithm using just 20 minutes. However, I le
 Pagerank is really important when you want to search something in the searching engine. Imagine billions of results with the same key words jumping out at the same instant. Unrelated information will decrease the efficiency to even zero or negative. So here it is, pagerank. It involves in the thought of modeling and simulation. Plus, possiblities! There is even an animation of it! Have a look! [result_of_programming](codings/PageRank_test.py)
 ![A_Graph](pictures/PageRank_illustation.png)
 
+### Perceptron
+
+Do you know what a neural network is? Well, basically, it's artificial intelligence. It's cool. So what is it made of? Perceptron! That's it, something used to solve binary variables questions. It has a variety of usages, from showing logic gates, to predict the breed of iris. [see_the_programming]()
+![result_pictures]()
 
 
