@@ -10,6 +10,8 @@ In mathematics, graph theory is the study of graphs, which are mathematical stru
 
 #### 1.Minimum Spanning Tree
 
+A minimum spanning tree (MST) is a subset of the edges if a connected, edge-weighted undirected graph that connects all the vertices together, without any cycles and with the minimum possible total edge weight. The graph below is a planar graph and its minimum spanning tree. Each edge is labeled with its weight so this is a weighted graph. 
+
 ![Planar Graph](600px-Minimum_spanning_tree.png)
 
 ##### a.Kruskal Algorithm
