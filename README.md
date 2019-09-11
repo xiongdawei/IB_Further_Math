@@ -1,5 +1,8 @@
-# IB CAS Project - created by David Xiong and Helen Bai, with help from IB CS HL. ALL RIGHTS RESERVES 🤪
-### This repository is created by David Xiong and Helen Bai to implement various of algorithm in IBDP Mathematics
+# IB CAS Project 
+## Presented David Xiong and Helen Bai. 
+## This IB CAS Prjecet with its IP are assets of Air Sealand Inc.
+## ALL RIGHTS RESERVES ©
+
 ### Encryption
 
 ### Compression
