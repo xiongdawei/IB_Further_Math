@@ -11,7 +11,7 @@ Every data in the database requires encrypt, otherwise the security for informat
 ![AES_algorithm](pictures/AES_illustation.png)
 
 sample program is shown below
-'''
+```ruby
 import time as t
 PrivateKey1=eval(input("Choose one:"))
 PrivateKey2=eval(input("Choose another:"))
@@ -37,7 +37,7 @@ print("PPN1,PPN2:",PPN1,PPN2)
 print("timeneed:",round(timeneed,4))
 print(getShared(PPN1,PrivateKey2,ClockNumber))
 print(getShared(PPN2,PrivateKey1,ClockNumber))
-'''
+```
 ### Compression
 
 ### Graph Theory
