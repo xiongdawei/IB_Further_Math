@@ -105,3 +105,6 @@ Do you know what a neural network is? Well, basically, it's artificial intellige
 ![result_pictures](pictures/Perceptron_illustration.png)
 
 ### Artificial Neural Network
+
+[Artificial Neural Network analogy](pictures/neuron.png)
+[ANN Net](pictures/nueral_net.jpg)
