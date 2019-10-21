@@ -106,7 +106,7 @@ Do you know what a neural network is? Well, basically, it's artificial intellige
 
 ### Artificial Neural Network
 
-[Artificial Neural Network analogy](pictures/neuron.png)
+![Artificial Neural Network analogy](pictures/neuron.png)
 
 As we mention above, artificial neural network is actually a combination of mathematical models. 
-[ANN Net](pictures/nueral_net.jpg)
+![ANN Net](pictures/nueral_net.jpg)
