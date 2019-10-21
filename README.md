@@ -110,3 +110,118 @@ Do you know what a neural network is? Well, basically, it's artificial intellige
 
 As we mention above, artificial neural network is actually a combination of mathematical models. Under supervised learning, the model can work similiar to human brain's neural system. During the initialization process, every node is connected to each other with a random weight and each node use a non-linear function such as Sigmoid or ReLU function. After the running the they system for the first time, the model will calculate the different between the actual results and the expected results, and then make modification to the weight that are pre-determined, which is called back propogation. 
 ![ANN Net](pictures/nueral_net.jpg)
+
+```ruby
+import numpy as np
+import math
+import random
+
+from numpy.core._multiarray_umath import ndarray
+
+
+class ANN:
+    def __init__(self,weights_input_hidden,weights_hidden_output,result,input,time_of_iterate=0):
+        self.weights_input_hidden = weights_input_hidden
+        self.weights_hidden_output = weights_hidden_output
+        self.result = result
+        self.input = input
+        self.time = time_of_iterate
+        self.error = None
+        self.o_delta = None
+        self.sum = None
+        self.calculated_value = np.zeros([3,1])
+        self.hidden_error = None
+        self.hidden_delta = None
+
+    def sigmoid(self,x):
+        return 1.0/ (1.0 + math.exp(-x))
+
+    def sigmoid_derivative(self,x):
+        return x*(1-x)
+
+    def random_weight(self):
+        return round(random.random(),2)
+
+    def get_weight_input_hidden(self):
+        return self.weights_input_hidden
+
+    def get_weight_hidden_output(self):
+        return self.weights_hidden_output
+
+    def get_time_of_interate(self):
+        return self.time
+
+    def get_input(self):
+        return self.input
+
+    def get_result(self):
+        return self.result
+
+    def initialize(self):
+        a = ANN
+        for i in range(np.shape(self.weights_input_hidden)[0]):
+            for j in range(np.shape(self.weights_input_hidden)[1]):
+                self.weights_input_hidden[i][j] = round(random.random(),2)
+        for k in range(np.shape(self.weights_hidden_output)[0]):
+            for l in range(np.shape(self.weights_input_hidden)[1]):
+                self.weights_hidden_output[k][l] = round(random.random(),2)
+
+    def feedforward(self ,sum=0 ,node_num=0):
+        a = ANN
+        while node_num<3:
+            hidden_neuron_input = np.sum(np.dot(self.input[self.time], self.weights_input_hidden[node_num]))
+            #print("The " + str(node_num+1) + " sum of one node is " + str(hidden_neuron_input))
+            result = 1.0 / (1.0 + math.exp(-hidden_neuron_input))* self.weights_hidden_output[0][node_num]
+            #print(str(self.weights_hidden_output[0][self.time]))
+            #print('The ' + str(node_num) + ' result is ' + str(result))
+            self.calculated_value[node_num] = result
+            self.sum = np.sum(self.calculated_value)
+            node_num+=1
+        self.time+=1
+        self.sum = 1.0/ (1.0 + math.exp(-self.sum))
+        return self.sum
+
+    def back_propagation(self):
+        a = ANN
+        self.error = self.sum-self.result[self.time-1][0]
+        self.delta = self.error*(1.0/(1.0 + math.exp(-self.result[self.time-1][0])))
+        self.hidden_error = np.dot(self.delta,self.weights_hidden_output)
+        adjustment = 1.0/(1.0+ math.exp(self.calculated_value[0]))
+        self.hidden_delta = self.weights_input_hidden*adjustment
+        #self.hidden_error = np.reshape(self.hidden_error,[3,1])
+        self.weights_input_hidden += self.hidden_delta
+        self.weights_hidden_output += self.hidden_error
+        print("----------weights_input_hidden------------")
+        print(self.hidden_delta)
+        print(self.hidden_error)
+        print("----------weights_hidden_output------------")
+
+        return self.weights_input_hidden, self.weights_hidden_output
+
+    def train(self):
+        a = ANN(self.weights_input_hidden,self.weights_hidden_output,self.result,self.input)
+        a.initialize()
+        n = len(self.input)
+        while n>0:
+            print('This is the ' + str(self.time+1) + " iteration")
+            print("The weights between the input layer and the hidden layers are")
+            print(self.weights_input_hidden)
+            print("The weights between the hidden layer and the output layers are")
+            print(self.weights_hidden_output)
+            a.feedforward()
+            a.back_propagation()
+            n-=1
+
+
+input = [[99,1],[97,3],[43,57],[26,74],[90,10],[80,20],[50,50],[39,61],[70,30],[75,25],[99,1],[97,3],[43,57]]
+result = [[0.98],[0.983],[0.3],[0.4],[0.91],[0.85],[0.2],[0.38],[0.6],[0.77],[0.98],[0.983],[0.3]]
+learning_rate = 0.5
+weights_a = np.array([[0.5,0.5],[0.5,0.5],[0.5,0.5]])
+weights_b = np.array([[0.5,0.5,0.5]])
+
+if __name__ == "__main__":
+    a = ANN(weights_a,weights_b,result,input)
+    a.train()
+
+
+```
