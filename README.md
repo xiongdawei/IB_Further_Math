@@ -58,19 +58,11 @@ A minimum spanning tree (MST) is a subset of the edges if a connected, edge-weig
 
 ```ruby
 def find(x, pres):
-    """
-    查找x的最上级（首级）
-    :param x: 要查找的数
-    :param pres: 每个元素的首级
-    :return: 根结点（元素的首领结点）
-    """
-    root, p = x, x  # root:根节点， p:指针
+    root, p = x, x  # root p:pointer
 
-    # 找根节点
     while root != pres[root]:
         root = pres[root]
 
-    # 路径压缩，把每个经过的结点的上一级设为root（直接设为首级）
     while p != pres[p]:
         p, pres[p] = pres[p], root
     return root
@@ -78,16 +70,15 @@ def find(x, pres):
 
 def join(x, y, pres, ranks):
     """
-    合并两个元素（合并两个集合）
-    :param x: 第一个元素
-    :param y: 第二个元素
-    :param pres: 每个元素的上一级
-    :param ranks: 每个元素作为根节点时的秩（树的深度）
+    Combine two elements 
+    :param x: The first element 
+    :param y: The second element 
+    :param pres: The level higher than the current element
+    :param ranks: The depth of the tree
     :return: None
     """
     h1, h2 = find(x, pres), find(y, pres)
-    # 当两个元素不是同一组的时候才合并
-    # 按秩合并
+    # Combine only when two elements are different
     if h1 != h2:
         if ranks[h1] < ranks[h2]:
             pres[h1] = h2
@@ -120,7 +111,6 @@ def kruskal(n, edges):
             break
     return mst_edges
 ```
-
 
 ##### b.Prim's Algorithm
 
