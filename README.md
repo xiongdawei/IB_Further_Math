@@ -52,7 +52,121 @@ A minimum spanning tree (MST) is a subset of the edges if a connected, edge-weig
 
 ##### a.Kruskal Algorithm
 
+1. Sort all the edges in non-decreasing order of their weight.
+2. Pick the smallest edge. Check if it forms a cycle with the spanning tree formed so far. If cycle is not formed, include this edge. Else, discard it.
+3. Repeat step 2 until there are (V-1) edges in the spanning tree.
+
+```ruby
+def find(x, pres):
+    """
+    查找x的最上级（首级）
+    :param x: 要查找的数
+    :param pres: 每个元素的首级
+    :return: 根结点（元素的首领结点）
+    """
+    root, p = x, x  # root:根节点， p:指针
+
+    # 找根节点
+    while root != pres[root]:
+        root = pres[root]
+
+    # 路径压缩，把每个经过的结点的上一级设为root（直接设为首级）
+    while p != pres[p]:
+        p, pres[p] = pres[p], root
+    return root
+
+
+def join(x, y, pres, ranks):
+    """
+    合并两个元素（合并两个集合）
+    :param x: 第一个元素
+    :param y: 第二个元素
+    :param pres: 每个元素的上一级
+    :param ranks: 每个元素作为根节点时的秩（树的深度）
+    :return: None
+    """
+    h1, h2 = find(x, pres), find(y, pres)
+    # 当两个元素不是同一组的时候才合并
+    # 按秩合并
+    if h1 != h2:
+        if ranks[h1] < ranks[h2]:
+            pres[h1] = h2
+        else:
+            pres[h2] = h1
+            if ranks[h1] == ranks[h2]:
+                ranks[h1] += 1
+
+
+def kruskal(n, edges):
+    """
+    kruskal algorithm
+    :param n: number of node
+    :param edges: edges with weight
+    :return: a list of minimum edges
+    """
+ 
+    pres, ranks = [e for e in range(n)], [0] * n
+    # Sort the edges from the biggest to the smallest
+    edges = sorted(edges, key=lambda x: x[-1])
+    mst_edges, num = [], 0
+    for edge in edges:
+        if find(edge[0], pres) != find(edge[1], pres):
+            mst_edges.append(edge)
+            join(edge[0], edge[1], pres, ranks)
+            num += 1
+        else:
+            continue
+        if num == n:
+            break
+    return mst_edges
+```
+
+
 ##### b.Prim's Algorithm
+
+1. Start with the empty spanning tree.
+2. Maintain a set mst[] to keep track to vertices included in minimum spanning tree.
+Assign a key value to all the vertices, (say key []) and initialize all the keys with +∞ (Infinity) except the first vertex. (We will start with this vertex, for which key will be 0).
+3. Key value in step 3 will be used in making decision that which next vertex and edge will be included in the mst[]. We will pick the vertex which is not included in mst[] and has the minimum key. So at the beginning the first vertex will be picked first.
+4. Repeat the following steps until all vertices are processed
+5. Pick the vertex u which is not in mst[] and has minimum key. Add vertex u to mst[].Loop over all the adjacent vertices of u
+For adjacent vertex v, if v is not in mst[] and edge u-v weight is less than the key of vertex u, key[u] then update the key[u]= edge u-v weight.
+Return mst[].
+```ruby
+import sys
+
+graphMatrix = [[0, 54, 32, 7, 50, 60], [54, 0, 21, 58, 76, 69], [32, 21, 0, 35, 67, 66],
+               [7, 58, 35, 0, 50, 62], [50, 76, 67, 50, 0, 14], [60, 69, 66, 62, 14, 0]]
+
+treeDis = graphMatrix[0]  # The list of the shortest distances
+visited = [0 for i in range(6)]  # A node already be used will be marked as 1
+visited[0] = 1
+neighbor = [0] * 6
+for i in range(5):
+    minDis = sys.maxsize
+    minDisPos = int()
+    # Find the smallest distance
+    for j in range(6):
+        if (not visited[j]) and (treeDis[j] < minDis):
+            minDis = treeDis[j]
+            minDisPos = j
+
+    visited[minDisPos] = 1
+    print(minDisPos, minDis)
+    # print("Here tree")
+    # print(treeDis)
+    for j in range(6):
+        # refresh the list to find the shortest distance
+        if (not visited[j]) and (graphMatrix[j][minDisPos] < treeDis[j]):
+            treeDis[j] = graphMatrix[j][minDisPos]
+            neighbor[j] = minDisPos
+        # print("Here minDIsPos : "+str(minDisPos))
+
+print(neighbor)
+print("Edges that in the tree:")
+for i in range(1, 6):
+    print(str(i) + '-' + str(neighbor[i]))
+```
 
 ##### c.Dijstra Algorithm
 
