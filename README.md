@@ -109,7 +109,7 @@ Do you know what a neural network is? Well, basically, it's artificial intellige
 ![Artificial Neural Network analogy](pictures/neuron.png)
 
 As we mention above, artificial neural network is actually a combination of mathematical models. Under supervised learning, the model can work similiar to human brain's neural system. During the initialization process, every node is connected to each other with a random weight and each node use a non-linear function such as Sigmoid or ReLU function. After the running the they system for the first time, the model will calculate the different between the actual results and the expected results, and then make modification to the weight that are pre-determined, which is called back propogation. 
-![ANN Net](pictures/nueral_net.jpg)
+![ANN Net](pictures/neural_net.jpg)
 
 ```ruby
 import numpy as np
