@@ -1,7 +1,7 @@
 ## CAS Project 
 ### Presented David Xiong and Helen Bai. 
 ### This IBDP CAS Prjecet with its IP are assets of Air Sealand Inc.
-#### ALL RIGHTS RESERVES ©
+#### ALL RIGHTS RESERVED ©
 
 ### Encryption
 Every data in the database requires encrypt, otherwise the security for information won't exist anymore. We all know that there are encryption algorithms, but how do them work? This python programming will illustrate it. To be specfic, this programming illustates how AES, a kind of asymmetirc encryption algorithms, works. Inside the algorithm, there is the utilization of further math works as Euler Theorem. 
